@@ -1,8 +1,10 @@
+import { Baby, School, Activity } from "lucide-react";
+
 export default function AgeSelectors() {
   const ageGroups = [
-    { range: "0-5 Years", desc: "Vaccination, nutrition & growth tracking", icon: "baby_changing_station" },
-    { range: "6-12 Years", desc: "Physical fitness & cognitive development", icon: "school" },
-    { range: "13-18 Years", desc: "Mental wellness & teen health guides", icon: "self_improvement" }
+    { range: "0-5 Years", desc: "Vaccination, nutrition & growth tracking", icon: Baby },
+    { range: "6-12 Years", desc: "Physical fitness & cognitive development", icon: School },
+    { range: "13-18 Years", desc: "Mental wellness & teen health guides", icon: Activity }
   ];
 
   return (
@@ -16,12 +18,12 @@ export default function AgeSelectors() {
           {ageGroups.map((group, idx) => (
             <div key={idx} className="group relative cursor-pointer overflow-hidden rounded-2xl bg-slate-100 p-8 text-center transition hover:shadow-xl">
               <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/20 text-primary group-hover:scale-110 transition">
-                <span className="material-symbols-outlined text-3xl">{group.icon}</span>
+                <group.icon className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-medium text-slate-900">{group.range}</h3>
               <p className="mt-2 text-sm text-slate-600">{group.desc}</p>
               <div className="mt-6">
-                <span className="text-sm font-medium text-primary">Explore Features →</span>
+                <span className="text-sm font-medium text-primary">Explore Features  →</span>
               </div>
             </div>
           ))}

@@ -1,3 +1,5 @@
+import { ShieldCheck, Users } from "lucide-react";
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden py-16 lg:py-16">
@@ -25,11 +27,11 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">verified_user</span>
+                <ShieldCheck className="h-5 w-5 text-primary" />
                 <span className="text-sm font-normal text-slate-600">Go Green Certified</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">groups</span>
+                <Users className="h-5 w-5 text-primary" />
                 <span className="text-sm font-normal text-slate-600">Verified Doctors</span>
               </div>
             </div>

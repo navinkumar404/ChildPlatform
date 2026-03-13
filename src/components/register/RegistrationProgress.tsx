@@ -1,6 +1,7 @@
 interface RegistrationProgressProps {
   title: string;
-  subtitle?: string; 
+  subtitle?: string;
+  overline?: string; 
   step: number;
   totalSteps: number;
   registrationId?: string; 
