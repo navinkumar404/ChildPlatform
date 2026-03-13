@@ -1,3 +1,5 @@
+import { UserPlus, Stethoscope, Handshake } from "lucide-react";
+
 export default function RegistrationPaths() {
   return (
     <section className="py-16">
@@ -9,7 +11,7 @@ export default function RegistrationPaths() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Direct Registration */}
           <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-primary/50">
-            <span className="material-symbols-outlined mb-6 text-4xl text-primary">person_add</span>
+            <UserPlus className="mb-6 h-12 w-12 text-primary" />
             <h3 className="text-2xl font-medium text-slate-900">Direct</h3>
             <p className="mt-4 flex-grow text-slate-600">Register directly as a parent and start tracking your child's health journey today.</p>
             <button className="mt-8 w-full rounded-full bg-primary py-3 font-normal text-white transition hover:brightness-110">Get Started</button>
@@ -17,7 +19,7 @@ export default function RegistrationPaths() {
           {/* Hospital/Doctor */}
           <div className="flex flex-col rounded-3xl border border-primary bg-primary/5 p-8 shadow-md">
             <div className="mb-6 flex items-center justify-between">
-              <span className="material-symbols-outlined text-4xl text-primary">local_hospital</span>
+              <Stethoscope className="h-12 w-12 text-primary" />
               <span className="rounded-full bg-primary px-3 py-1 text-xs font-medium text-white">RECOMMENDED</span>
             </div>
             <h3 className="text-2xl font-medium text-slate-900">Hospital/Doctor</h3>
@@ -26,7 +28,7 @@ export default function RegistrationPaths() {
           </div>
           {/* Channel Partner */}
           <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-primary/50">
-            <span className="material-symbols-outlined mb-6 text-4xl text-primary">handshake</span>
+            <Handshake className="mb-6 h-12 w-12 text-primary" />
             <h3 className="text-2xl font-medium text-slate-900">Channel Partner</h3>
             <p className="mt-4 flex-grow text-slate-600">Are you a healthcare provider or a partner? Register to join our network.</p>
             <button className="mt-8 w-full rounded-full bg-primary py-3 font-normal text-white transition hover:brightness-110">Partner With Us</button>

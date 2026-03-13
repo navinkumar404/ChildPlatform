@@ -8,6 +8,7 @@ import FloatingActions from '@/components/shared/FloatingActions';
 import Milestones from '@/components/home/Milestones';
 import Testimonials from '@/components/home/Testimonials';
 import FAQ from '@/components/home/FAQ';
+import Commitment from '@/components/home/Commitment';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
+        <Commitment />
         <Milestones />
         {/* <AgeSelectors /> */}
         <RegistrationPaths />

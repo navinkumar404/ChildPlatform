@@ -2,24 +2,35 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  LayoutDashboard,
+  Syringe,
+  FileText,
+  Sparkles,
+  School,
+  Trees,
+  Settings,
+  X,
+  Menu,
+} from "lucide-react";
 
 interface SidebarProps {
   isDesktopCollapsed: boolean;
   isMobileOpen: boolean;
   closeMobile: () => void;
-  toggleDesktop: () => void; // Added prop
+  toggleDesktop: () => void;
 }
 
 export default function Sidebar({ isDesktopCollapsed, isMobileOpen, closeMobile, toggleDesktop }: SidebarProps) {
   const pathname = usePathname();
 
   const navItems = [
-    { name: "Overview", icon: "dashboard", href: "/dashboard" },
-    { name: "Vaccination Tracker", icon: "vaccines", href: "/dashboard/vaccinations" },
-    { name: "Health Records", icon: "description", href: "/dashboard/records" },
-    { name: "Milestones", icon: "auto_awesome", href: "/dashboard/milestones" },
-    { name: "School", icon: "school", href: "/dashboard/school" },
-    { name: "Go Green", icon: "eco", href: "/dashboard/green" },
+    { name: "Overview", icon: LayoutDashboard, href: "/dashboard" },
+    { name: "Vaccination Tracker", icon: Syringe, href: "/dashboard/vaccinations" },
+    { name: "Health Records", icon: FileText, href: "/dashboard/records" },
+    { name: "Milestones", icon: Sparkles, href: "/dashboard/milestones" },
+    { name: "School", icon: School, href: "/dashboard/school" },
+    { name: "Go Green", icon: Trees, href: "/dashboard/green" },
   ];
 
   return (
@@ -49,17 +60,15 @@ export default function Sidebar({ isDesktopCollapsed, isMobileOpen, closeMobile,
         
         {/* Mobile Close Button */}
         <button onClick={closeMobile} className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-slate-500 hover:bg-slate-100 lg:hidden">
-          <span className="material-symbols-outlined">close</span>
+          <X className="h-5 w-5" />
         </button>
 
         {/* Desktop Collapse/Expand Toggle Button */}
-        <button 
+        <button
           onClick={toggleDesktop}
           className={`hidden lg:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-800 ${isDesktopCollapsed ? "" : "ml-auto"}`}
         >
-          <span className="material-symbols-outlined">
-            {isDesktopCollapsed ? "menu" : "menu_open"}
-          </span>
+          <Menu className="h-5 w-5" />
         </button>
       </div>
 
@@ -78,24 +87,24 @@ export default function Sidebar({ isDesktopCollapsed, isMobileOpen, closeMobile,
       </div> */}
 
       {/* Navigation */}
-      <nav className="flex-1 space-y-2 overflow-x-hidden overflow-y-auto px-4 pt-4">
+      <nav className="flex-1 space-y-1 overflow-x-hidden overflow-y-auto px-4 pt-4">
         {navItems.map((item, index) => {
           const isActive = pathname === item.href;
 
           return (
-            <Link 
+            <Link
               key={index}
-              href={item.href} 
+              href={item.href}
               onClick={closeMobile}
               title={isDesktopCollapsed ? item.name : ""}
-              className={`flex items-center gap-4 rounded-full px-4 py-3 transition-colors lg:py-2 
-                ${isActive 
-                  ? "bg-primary font-normal text-white shadow-md shadow-primary/20" 
-                  : "font-normal text-slate-600 hover:bg-primary/10 hover:text-primary"} 
+              className={`flex items-center gap-4 rounded-r-full px-4 py-3 transition-colors lg:py-2
+                ${isActive
+                  ? "bg-primary font-normal text-white shadow-md shadow-primary/20"
+                  : "font-normal text-slate-600 hover:bg-primary/10 hover:text-primary"}
                 ${isDesktopCollapsed ? "lg:justify-center lg:gap-0 lg:px-0" : ""}`
               }
             >
-              <span className="material-symbols-outlined shrink-0 text-xs">{item.icon}</span>
+              <item.icon className="h-5 w-5 shrink-0" />
               <span className={`whitespace-nowrap ${isDesktopCollapsed ? "lg:hidden" : "block"}`}>
                 {item.name}
               </span>
@@ -106,7 +115,7 @@ export default function Sidebar({ isDesktopCollapsed, isMobileOpen, closeMobile,
         <div className="my-6 border-t border-slate-100 lg:my-4"></div>
 
         <Link href="/dashboard/settings" title={isDesktopCollapsed ? "Settings" : ""} className={`flex items-center gap-4 rounded-xl px-4 py-3.5 font-normal text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 lg:py-2.5 ${isDesktopCollapsed ? "lg:justify-center lg:gap-0 lg:px-0" : ""}`}>
-          <span className="material-symbols-outlined shrink-0 text-xl">settings</span>
+          <Settings className="h-5 w-5 shrink-0" />
           <span className={isDesktopCollapsed ? "lg:hidden" : "block"}>Settings</span>
         </Link>
       </nav>
@@ -117,9 +126,9 @@ export default function Sidebar({ isDesktopCollapsed, isMobileOpen, closeMobile,
           <p className={`text-center text-[10px] font-medium uppercase tracking-wider text-primary ${isDesktopCollapsed ? "lg:hidden" : "block"}`}>
             Active Subscription
           </p>
-          <button 
+          <button
             title={isDesktopCollapsed ? "Green Cohort Member" : ""}
-            className={`flex items-center justify-center gap-2 rounded-xl bg-primary font-medium text-white shadow-md shadow-primary/20 transition-all hover:bg-primary/90 ${isDesktopCollapsed ? "lg:h-10 lg:w-10 lg:p-0 lg:rounded-full" : "w-full py-3 text-sm lg:rounded-full"}`} 
+            className={`flex items-center justify-center gap-2 rounded-xl bg-primary font-medium text-white shadow-md shadow-primary/20 transition-all hover:bg-primary/90 ${isDesktopCollapsed ? "lg:h-10 lg:w-10 lg:p-0 lg:rounded-full" : "w-full py-3 text-sm lg:rounded-full"}`}
           >
             <span className={isDesktopCollapsed ? "lg:hidden" : "block"}>Green Cohort Member</span>
             <span>🌱</span>

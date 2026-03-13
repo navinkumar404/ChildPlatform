@@ -1,11 +1,13 @@
+import { Plus, Info } from "lucide-react";
+
 export default function MilestoneProgress() {
   return (
     <div className="flex flex-col gap-6 lg:col-span-1">
-      
+
       {/* Progress Card */}
       <div className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm">
         <h3 className="mb-6 font-medium text-slate-900">Overall Progress</h3>
-        
+
         <div className="relative mx-auto mb-6 flex h-40 w-40 items-center justify-center">
           <svg className="h-full w-full -rotate-90">
             <circle className="text-primary/10" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" strokeWidth="12"></circle>
@@ -16,7 +18,7 @@ export default function MilestoneProgress() {
             <span className="text-[10px] font-medium uppercase tracking-wider text-slate-500">Achieved</span>
           </div>
         </div>
-        
+
         <div className="space-y-3">
           <div className="flex items-center justify-between px-4 text-sm">
             <div className="flex items-center gap-2 text-slate-700">
@@ -37,14 +39,14 @@ export default function MilestoneProgress() {
 
       {/* Add Milestone Button */}
       <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 font-medium text-white shadow-lg shadow-primary/30 transition-all hover:bg-primary/90">
-        <span className="material-symbols-outlined">add_circle</span>
+        <Plus className="h-5 w-5" />
         Add New Milestone
       </button>
 
       {/* Alerts */}
       <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
         <div className="flex gap-3">
-          <span className="material-symbols-outlined shrink-0 text-amber-500">info</span>
+          <Info className="shrink-0 h-5 w-5 text-amber-500" />
           <p className="text-xs font-normal leading-relaxed text-amber-800">
             Consult your pediatrician if any milestone is delayed by 2+ months beyond the typical age range.
           </p>

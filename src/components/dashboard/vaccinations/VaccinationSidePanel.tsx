@@ -1,21 +1,23 @@
+import { FileText, Share2, Bell, Mail, MessageCircle, Send } from "lucide-react";
+
 export default function VaccinationSidePanel() {
   return (
     <aside className="flex w-full flex-col gap-8 lg:w-80 lg:shrink-0 lg:border-l lg:border-slate-200 lg:pl-8">
-      
+
       {/* Quick Actions */}
       <div>
         <h3 className="mb-4 text-xs font-medium uppercase tracking-wider text-slate-400">Quick Actions</h3>
         <div className="grid gap-3">
           <button className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-colors hover:bg-slate-50">
-            <span className="material-symbols-outlined text-primary">picture_as_pdf</span>
+            <FileText className="h-5 w-5 text-primary" />
             <span className="text-sm font-normal text-slate-700">Download Card (PDF)</span>
           </button>
           <button className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-colors hover:bg-slate-50">
-            <span className="material-symbols-outlined text-primary">share</span>
+            <Share2 className="h-5 w-5 text-primary" />
             <span className="text-sm font-normal text-slate-700">Share with Doctor</span>
           </button>
           <button className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-colors hover:bg-slate-50">
-            <span className="material-symbols-outlined text-primary">notifications_active</span>
+            <Bell className="h-5 w-5 text-primary" />
             <span className="text-sm font-normal text-slate-700">Reminder Settings</span>
           </button>
         </div>
@@ -29,19 +31,19 @@ export default function VaccinationSidePanel() {
           <div className="flex gap-4">
             <div className="flex flex-col items-center gap-1.5">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
-                <span className="material-symbols-outlined text-xl text-primary">mail</span>
+                <Mail className="h-5 w-5 text-primary" />
               </div>
               <span className="text-[10px] font-normal text-slate-700">Email</span>
             </div>
             <div className="flex flex-col items-center gap-1.5">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
-                <span className="material-symbols-outlined text-xl text-primary">chat</span>
+                <MessageCircle className="h-5 w-5 text-primary" />
               </div>
               <span className="text-[10px] font-normal text-slate-700">WhatsApp</span>
             </div>
             <div className="flex flex-col items-center gap-1.5 opacity-40">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
-                <span className="material-symbols-outlined text-xl text-slate-400">sms</span>
+                <Send className="h-5 w-5 text-slate-400" />
               </div>
               <span className="text-[10px] font-normal text-slate-700">SMS</span>
             </div>
@@ -60,7 +62,7 @@ export default function VaccinationSidePanel() {
           <div className="absolute -bottom-4 -right-4 h-32 w-32 rounded-full bg-primary/20 blur-2xl transition-all group-hover:bg-primary/30"></div>
         </div>
       </div>
-      
+
     </aside>
   );
 }

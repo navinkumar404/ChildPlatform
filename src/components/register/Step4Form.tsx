@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Info, Check, ArrowRight, ArrowLeft } from "lucide-react";
 
 interface Step4Props {
   onNext: () => void;
@@ -15,15 +16,14 @@ export default function Step4Form({ onNext, onPrev }: Step4Props) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!termsConsent || !healthConsent) {
-      // Basic safeguard. The native 'required' attributes on the inputs also handle this.
       return;
     }
-    onNext(); 
+    onNext();
   };
 
   return (
     <form className="flex flex-col gap-8 p-6 md:p-8" onSubmit={handleSubmit}>
-      
+
       {/* Summary Card */}
       <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
         <div className="mb-4 flex items-start justify-between">
@@ -44,7 +44,7 @@ export default function Step4Form({ onNext, onPrev }: Step4Props) {
 
       {/* Info Box */}
       <div className="flex gap-4 rounded-lg border border-primary/20 bg-primary/5 p-4">
-        <span className="material-symbols-outlined shrink-0 text-primary">info</span>
+        <Info className="h-5 w-5 shrink-0 text-primary" />
         <div className="text-sm leading-relaxed text-slate-700">
           <p className="mb-1 font-semibold text-slate-900">Why we need your consent</p>
           <ul className="list-inside list-disc space-y-1">
@@ -57,19 +57,19 @@ export default function Step4Form({ onNext, onPrev }: Step4Props) {
 
       {/* Consent Checkboxes */}
       <div className="space-y-5">
-        
+
         {/* Health Consent */}
         <label className="group flex cursor-pointer items-start gap-4">
           <div className="relative mt-1 flex items-center">
-            <input 
-              type="checkbox" 
-              required 
+            <input
+              type="checkbox"
+              required
               checked={healthConsent}
               onChange={(e) => setHealthConsent(e.target.checked)}
-              className="peer sr-only" 
+              className="peer sr-only"
             />
             <div className={`flex h-5 w-5 items-center justify-center rounded border transition-all ${healthConsent ? 'border-primary bg-primary text-white' : 'border-slate-300 bg-transparent group-hover:border-primary/50'}`}>
-              {healthConsent && <span className="material-symbols-outlined text-[14px] font-bold">check</span>}
+              {healthConsent && <Check className="h-3 w-3 font-bold" />}
             </div>
           </div>
           <div className="text-sm text-slate-700">
@@ -81,15 +81,15 @@ export default function Step4Form({ onNext, onPrev }: Step4Props) {
         {/* Terms Consent */}
         <label className="group flex cursor-pointer items-start gap-4">
           <div className="relative mt-1 flex items-center">
-            <input 
-              type="checkbox" 
-              required 
+            <input
+              type="checkbox"
+              required
               checked={termsConsent}
               onChange={(e) => setTermsConsent(e.target.checked)}
-              className="peer sr-only" 
+              className="peer sr-only"
             />
             <div className={`flex h-5 w-5 items-center justify-center rounded border transition-all ${termsConsent ? 'border-primary bg-primary text-white' : 'border-slate-300 bg-transparent group-hover:border-primary/50'}`}>
-              {termsConsent && <span className="material-symbols-outlined text-[14px] font-bold">check</span>}
+              {termsConsent && <Check className="h-3 w-3 font-bold" />}
             </div>
           </div>
           <div className="text-sm text-slate-700">
@@ -101,14 +101,14 @@ export default function Step4Form({ onNext, onPrev }: Step4Props) {
         {/* Voice Reminders */}
         <label className="group flex cursor-pointer items-start gap-4">
           <div className="relative mt-1 flex items-center">
-            <input 
-              type="checkbox" 
+            <input
+              type="checkbox"
               checked={voiceReminders}
               onChange={(e) => setVoiceReminders(e.target.checked)}
-              className="peer sr-only" 
+              className="peer sr-only"
             />
             <div className={`flex h-5 w-5 items-center justify-center rounded border transition-all ${voiceReminders ? 'border-primary bg-primary text-white' : 'border-slate-300 bg-transparent group-hover:border-primary/50'}`}>
-              {voiceReminders && <span className="material-symbols-outlined text-[14px] font-bold">check</span>}
+              {voiceReminders && <Check className="h-3 w-3 font-bold" />}
             </div>
           </div>
           <div className="text-sm text-slate-700">
@@ -120,24 +120,24 @@ export default function Step4Form({ onNext, onPrev }: Step4Props) {
       </div>
 
       {/* Actions */}
-      <div className="space-y-4 pt-4 ">
-        <div className="flex items-center justify-center" >
-          <button 
-          type="submit" 
-          className="flex w-[45%] items-center justify-center gap-2 rounded-full bg-primary py-3 text-lg font-medium text-white shadow-lg shadow-primary/20 transition-all hover:brightness-110"
-        >
-          Confirm & Pay ₹999
-          <span className="material-symbols-outlined">arrow_forward</span>
-        </button>
+      <div className="space-y-4 pt-4">
+        <div className="flex items-center justify-center">
+          <button
+            type="submit"
+            className="flex w-[45%] items-center justify-center gap-2 rounded-full bg-primary py-3 text-lg font-medium text-white shadow-lg shadow-primary/20 transition-all hover:brightness-110"
+          >
+            Confirm & Pay ₹999
+            <ArrowRight className="h-5 w-5" />
+          </button>
         </div>
-        
+
         <div className="text-center">
-          <button 
-            type="button" 
+          <button
+            type="button"
             onClick={onPrev}
             className="inline-flex items-center gap-1 text-sm font-medium text-slate-500 transition-colors hover:text-primary"
           >
-            <span className="material-symbols-outlined text-base">arrow_back</span>
+            <ArrowLeft className="h-4 w-4" />
             Go Back to Step 3
           </button>
         </div>

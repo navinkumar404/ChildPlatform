@@ -1,20 +1,22 @@
+import { Fingerprint } from "lucide-react";
+
 interface RegistrationProgressProps {
   title: string;
   subtitle?: string;
-  overline?: string; 
+  overline?: string;
   step: number;
   totalSteps: number;
-  registrationId?: string; 
+  registrationId?: string;
 }
 
-export default function RegistrationProgress({ 
-  title, 
-  subtitle, 
-  step, 
-  totalSteps, 
-  registrationId 
+export default function RegistrationProgress({
+  title,
+  subtitle,
+  step,
+  totalSteps,
+  registrationId
 }: RegistrationProgressProps) {
-  
+
   const progressPercentage = (step / totalSteps) * 100;
 
   return (
@@ -30,17 +32,17 @@ export default function RegistrationProgress({
             <p className="text-lg font-bold text-slate-900">{progressPercentage}%</p>
           </div>
         </div>
-        
+
         <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
-          <div 
-            className="h-full rounded-full bg-primary transition-all duration-500" 
+          <div
+            className="h-full rounded-full bg-primary transition-all duration-500"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
-        
+
         {registrationId && (
           <div className="mt-1 flex items-center gap-2">
-            <span className="material-symbols-outlined text-sm text-slate-400">fingerprint</span>
+            <Fingerprint className="h-4 w-4 text-slate-400" />
             <p className="font-mono text-xs uppercase tracking-tight text-slate-400">
               Registration ID: <span className="text-slate-600">{registrationId}</span>
             </p>

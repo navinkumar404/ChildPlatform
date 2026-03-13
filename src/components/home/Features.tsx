@@ -1,3 +1,5 @@
+import { FileText, Bell, Lock } from "lucide-react";
+
 export default function Features() {
   return (
     <section className="bg-primary/5 py-20">
@@ -8,7 +10,7 @@ export default function Features() {
             <div className="mt-10 space-y-8">
               <div className="flex gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
-                  <span className="material-symbols-outlined">description</span>
+                  <FileText className="h-6 w-6" />
                 </div>
                 <div>
                   <h4 className="text-lg font-medium text-slate-900">Paperless Records</h4>
@@ -17,7 +19,7 @@ export default function Features() {
               </div>
               <div className="flex gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
-                  <span className="material-symbols-outlined">notifications_active</span>
+                  <Bell className="h-6 w-6" />
                 </div>
                 <div>
                   <h4 className="text-lg font-medium text-slate-900">Smart Reminders</h4>
@@ -26,7 +28,7 @@ export default function Features() {
               </div>
               <div className="flex gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
-                  <span className="material-symbols-outlined">lock</span>
+                  <Lock className="h-6 w-6" />
                 </div>
                 <div>
                   <h4 className="text-lg font-medium text-slate-900">Secure & Private</h4>

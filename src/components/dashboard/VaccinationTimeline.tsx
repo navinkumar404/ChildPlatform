@@ -1,9 +1,11 @@
+import { Activity, CheckCircle, Hourglass, AlertTriangle } from "lucide-react";
+
 export default function VaccinationTimeline() {
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="flex items-center gap-2 text-xl font-medium">
-          <span className="material-symbols-outlined text-primary">timeline</span>
+          <Activity className="h-6 w-6 text-primary" />
           Vaccination Timeline
         </h3>
         <button className="text-sm font-semibold text-primary hover:underline">View History</button>
@@ -12,7 +14,7 @@ export default function VaccinationTimeline() {
         <div className="min-w-[280px] flex-1 rounded-xl border-l-4 border-primary bg-white p-5 shadow-sm">
           <div className="mb-3 flex items-start justify-between">
             <span className="text-xs font-medium uppercase tracking-wider text-primary">Completed</span>
-            <span className="material-symbols-outlined text-primary">check_circle</span>
+            <CheckCircle className="h-5 w-5 text-primary" />
           </div>
           <h5 className="text-lg font-medium">BCG</h5>
           <p className="text-sm text-slate-500">Tuberculosis Prevention</p>
@@ -21,7 +23,7 @@ export default function VaccinationTimeline() {
         <div className="min-w-[280px] flex-1 rounded-xl border-l-4 border-orange-500 bg-white p-5 shadow-sm">
           <div className="mb-3 flex items-start justify-between">
             <span className="text-xs font-medium uppercase tracking-wider text-orange-500">Due Soon</span>
-            <span className="material-symbols-outlined text-orange-500">hourglass_empty</span>
+            <Hourglass className="h-5 w-5 text-orange-500" />
           </div>
           <h5 className="text-lg font-medium">Polio</h5>
           <p className="text-sm text-slate-500">Dose 4 (Booster)</p>
@@ -30,7 +32,7 @@ export default function VaccinationTimeline() {
         <div className="min-w-[280px] flex-1 rounded-xl border-l-4 border-red-500 bg-white p-5 shadow-sm">
           <div className="mb-3 flex items-start justify-between">
             <span className="text-xs font-medium uppercase tracking-wider text-red-500">Overdue</span>
-            <span className="material-symbols-outlined text-red-500">priority_high</span>
+            <AlertTriangle className="h-5 w-5 text-red-500" />
           </div>
           <h5 className="text-lg font-medium">Hepatitis B</h5>
           <p className="text-sm text-slate-500">Final Dose</p>

@@ -1,60 +1,68 @@
-import { ShieldCheck, Users } from "lucide-react";
+import Link from "next/link";
+import { BadgeCheck, Play, CheckCircle } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden py-16 lg:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="flex flex-col gap-8">
-            <div className="space-y-4">
-              <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary tracking-wide uppercase">
-                Trusted by 50,000+ Indian Parents
-              </span>
-              <h1 className="text-4xl font-normal leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                Complete Child Health Journey from <span className="text-primary">0-18 Years</span>
-              </h1>
-              <p className="max-w-xl text-lg text-slate-600">
-                Empowering parents with comprehensive health tracking, vaccination reminders, and growth monitoring from birth to adulthood.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-lg font-light text-white shadow-xl shadow-primary/30 transition hover:scale-105">
-                Register Now
-              </button>
-              <button className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-lg font-light text-slate-700 border border-slate-200 shadow-sm transition hover:bg-slate-50">
-                View Demo
-              </button>
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="h-5 w-5 text-primary" />
-                <span className="text-sm font-normal text-slate-600">Go Green Certified</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-primary" />
-                <span className="text-sm font-normal text-slate-600">Verified Doctors</span>
-              </div>
-            </div>
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
+
+      {/* 1. Background Image (Absolute) */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          // Replace this URL with your actual WombTo18 family image
+          backgroundImage: "url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2000&auto=format&fit=crop')"
+        }}
+      />
+
+      {/* 2. Gradient Overlay (Absolute)
+          Fades from dark slate at the top to transparent at the bottom
+      */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-900/10" />
+
+      {/* 3. Centered Content (Relative & Z-10 to sit above the image/gradient) */}
+      <div className="relative z-10 flex w-full max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+
+        {/* Trust Badge */}
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-normal uppercase tracking-widest text-emerald-300 backdrop-blur-md sm:text-sm">
+          <BadgeCheck className="h-4 w-4" />
+          Trusted by 50,000+ Indian Parents
+        </div>
+
+        {/* Main Heading */}
+        <h1 className="mb-6 text-4xl font-medium tracking-tight text-white sm:text-6xl md:text-7xl">
+          Complete Child Health Journey from <br className="hidden md:block" />
+          <span className="text-primary">0-18 Years</span>
+        </h1>
+
+        {/* Subheading */}
+        <p className="mb-10 max-w-2xl text-lg font-light leading-relaxed text-slate-200 sm:text-xl">
+          Empowering parents with comprehensive health tracking, vaccination reminders, and growth monitoring from birth to adulthood.
+        </p>
+
+        {/* Call to Actions */}
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row w-full sm:w-auto">
+          <button className="w-full rounded-full bg-primary px-8 py-3 text-base font-normal text-white shadow-lg shadow-primary/30 transition-all hover:scale-105 hover:bg-primary/90 sm:w-auto sm:text-lg">
+            Register Now
+          </button>
+
+          <button className="flex w-full items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-3 text-base font-normal text-white backdrop-blur-md transition-all hover:bg-white/20 sm:w-auto sm:text-lg">
+            <Play className="h-5 w-5" />
+            View Demo
+          </button>
+        </div>
+
+        {/* Feature Ticks */}
+        <div className="mt-12 flex items-center justify-center gap-6 text-sm font-normal text-slate-300 sm:gap-8">
+          <div className="flex items-center gap-1.5">
+            <CheckCircle className="h-4.5 w-4.5 text-primary" />
+            Go Green Certified
           </div>
-          <div className="relative">
-            <div className="aspect-square w-full rounded-3xl bg-primary/5 overflow-hidden border-8 border-white shadow-2xl">
-              <img alt="Happy Indian family smiling together" className="h-full w-full object-cover" src="https://images.unsplash.com/photo-1731202485450-b3eb422f8783?q=80&w=985&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-            </div>
-            <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-6 shadow-xl">
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  <div className="h-10 w-10 rounded-full border-2 border-white bg-slate-200"></div>
-                  <div className="h-10 w-10 rounded-full border-2 border-white bg-slate-300"></div>
-                  <div className="h-10 w-10 rounded-full border-2 border-white bg-slate-400"></div>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-slate-900">Active Community</p>
-                  <p className="text-xs text-slate-500">Join 12k+ active discussions</p>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle className="h-4.5 w-4.5 text-primary" />
+            Verified Doctors
           </div>
         </div>
+
       </div>
     </section>
   );

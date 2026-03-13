@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { X, Calendar, AlertTriangle, Info, Syringe, Bell, Mail, MessageCircle, Send, Upload, CheckCircle } from "lucide-react";
 
 interface VaccineDetailsModalProps {
   isOpen: boolean;
@@ -25,13 +26,13 @@ export default function VaccineDetailsModal({ isOpen, onClose }: VaccineDetailsM
   return (
     // Backdrop
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm">
-      
+
       {/* Modal Container */}
-      <div 
+      <div
         className="flex max-h-[90vh] w-full max-w-[500px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()} // Prevent clicking inside from closing modal
       >
-        
+
         {/* Header Section */}
         <div className="relative border-b border-primary/10 px-6 pb-6 pt-8">
           <div className="flex items-start justify-between">
@@ -44,32 +45,32 @@ export default function VaccineDetailsModal({ isOpen, onClose }: VaccineDetailsM
               <h2 className="text-2xl font-bold leading-tight text-slate-900">DTaP-2</h2>
               <p className="text-sm font-medium text-slate-500">Diphtheria, Tetanus, Pertussis</p>
             </div>
-            <button 
+            <button
               onClick={onClose}
               className="text-slate-400 transition-colors hover:text-slate-700"
             >
-              <span className="material-symbols-outlined">close</span>
+              <X className="h-5 w-5" />
             </button>
           </div>
         </div>
 
         {/* Scrollable Content */}
         <div className="space-y-6 overflow-y-auto px-6 py-6">
-          
+
           {/* Quick Info Cards */}
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
               <div className="mb-2 flex items-center gap-2 text-primary">
-                <span className="material-symbols-outlined text-sm">calendar_today</span>
+                <Calendar className="h-4 w-4" />
                 <span className="text-[10px] font-bold uppercase tracking-tight">Due Date</span>
               </div>
               <p className="text-sm font-bold text-slate-900">20 March 2026</p>
               <p className="text-xs font-medium text-slate-500">Age: 10 weeks</p>
             </div>
-            
+
             <div className="rounded-xl border border-amber-200/50 bg-amber-50 p-4">
               <div className="mb-2 flex items-center gap-2 text-amber-600">
-                <span className="material-symbols-outlined text-sm">warning</span>
+                <AlertTriangle className="h-4 w-4" />
                 <span className="text-[10px] font-bold uppercase tracking-tight">Status</span>
               </div>
               <p className="text-sm font-bold text-amber-700">Due in 10 days</p>
@@ -82,7 +83,7 @@ export default function VaccineDetailsModal({ isOpen, onClose }: VaccineDetailsM
             {/* About */}
             <div className="flex gap-4">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <span className="material-symbols-outlined text-lg">info</span>
+                <Info className="h-5 w-5" />
               </div>
               <div className="flex flex-col">
                 <h3 className="text-sm font-bold text-slate-900">About this vaccine</h3>
@@ -95,7 +96,7 @@ export default function VaccineDetailsModal({ isOpen, onClose }: VaccineDetailsM
             {/* Side Effects */}
             <div className="flex gap-4">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <span className="material-symbols-outlined text-lg">medical_services</span>
+                <Syringe className="h-5 w-5" />
               </div>
               <div className="flex flex-col">
                 <h3 className="text-sm font-bold text-slate-900">Common side effects</h3>
@@ -116,22 +117,22 @@ export default function VaccineDetailsModal({ isOpen, onClose }: VaccineDetailsM
             {/* Reminders */}
             <div className="flex gap-4">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <span className="material-symbols-outlined text-lg">notifications_active</span>
+                <Bell className="h-5 w-5" />
               </div>
               <div className="flex flex-1 flex-col">
                 <h3 className="text-sm font-bold text-slate-900">Reminders sent</h3>
                 <p className="mt-0.5 text-xs text-slate-500">Scheduled for 18 Mar</p>
                 <div className="mt-3 flex gap-2">
                   <div className="flex items-center gap-1.5 rounded bg-slate-100 px-2.5 py-1 text-slate-600">
-                    <span className="material-symbols-outlined text-[14px]">mail</span>
+                    <Mail className="h-3 w-3" />
                     <span className="text-[10px] font-bold">Email</span>
                   </div>
                   <div className="flex items-center gap-1.5 rounded bg-slate-100 px-2.5 py-1 text-slate-600">
-                    <span className="material-symbols-outlined text-[14px]">chat</span>
+                    <MessageCircle className="h-3 w-3" />
                     <span className="text-[10px] font-bold">WhatsApp</span>
                   </div>
                   <div className="flex items-center gap-1.5 rounded bg-slate-100 px-2.5 py-1 text-slate-600">
-                    <span className="material-symbols-outlined text-[14px]">sms</span>
+                    <Send className="h-3 w-3" />
                     <span className="text-[10px] font-bold">SMS</span>
                   </div>
                 </div>
@@ -144,11 +145,11 @@ export default function VaccineDetailsModal({ isOpen, onClose }: VaccineDetailsM
         <div className="flex flex-col gap-3 border-t border-primary/10 bg-slate-50/50 p-6">
           <div className="grid grid-cols-2 gap-3">
             <button className="flex items-center justify-center gap-2 rounded-xl border-2 border-primary px-4 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/5">
-              <span className="material-symbols-outlined text-[18px]">upload_file</span>
+              <Upload className="h-4 w-4" />
               Upload Certificate
             </button>
             <button className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary/90">
-              <span className="material-symbols-outlined text-[18px]">check_circle</span>
+              <CheckCircle className="h-4 w-4" />
               Mark Done
             </button>
           </div>
@@ -156,7 +157,7 @@ export default function VaccineDetailsModal({ isOpen, onClose }: VaccineDetailsM
             <button className="rounded-xl bg-slate-100 px-4 py-3 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-200">
               Reschedule
             </button>
-            <button 
+            <button
               onClick={onClose}
               className="rounded-xl bg-slate-100 px-4 py-3 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-200"
             >
