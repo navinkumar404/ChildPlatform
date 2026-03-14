@@ -35,7 +35,7 @@ export default function Hero() {
         </h1>
 
         {/* Subheading */}
-        <p className="mb-10 max-w-2xl text-lg font-light leading-relaxed text-slate-200 sm:text-xl">
+        <p className="mb-10 max-w-2xl text-lg font-light leading-relaxed text-slate-100 sm:text-xl">
           Empowering parents with comprehensive health tracking, vaccination reminders, and growth monitoring from birth to adulthood.
         </p>
 
@@ -52,8 +52,8 @@ export default function Hero() {
         </div>
 
         {/* Feature Ticks */}
-        <div className="mt-12 flex items-center justify-center gap-6 text-sm font-normal text-slate-300 sm:gap-8">
-          <div className="flex items-center gap-1.5">
+        <div className="mt-12 flex items-center justify-center gap-6 text-sm font-normal text-slate-50 sm:gap-8">
+          <div className="flex items-center gap-1.5 ">
             <CheckCircle className="h-4.5 w-4.5 text-primary" />
             Go Green Certified
           </div>

@@ -7,16 +7,32 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "Is my data secure and private?",
-      answer: "Yes, we use bank-level encryption (AES-256) to secure all medical records. Only you and authorized doctors can access the data."
+      question: "Is my child's medical data secure and private?",
+      answer: "Absolutely. We use bank-level, end-to-end encryption (AES-256) and are fully HIPAA-compliant. Your data is never sold to third parties, and only you and your authorized healthcare providers can access it."
     },
     {
-      question: "How do vaccination reminders work?",
-      answer: "Based on your child's date of birth and regional immunization schedules, we send automated SMS, Email, and Push notifications 7 days and 1 day before the due date."
+      question: "How do the automated vaccination reminders work?",
+      answer: "Based on your child's date of birth and the official IAP (Indian Academy of Pediatrics) or WHO schedules, our system automatically calculates due dates. You will receive SMS, Email, and Push notifications 7 days and 1 day before a vaccine is due."
+    },
+    {
+      question: "How does the AI-powered milestone tracking work?",
+      answer: "Our proprietary AI analyzes the developmental milestones you log (like first steps or first words) against global pediatric datasets. It provides personalized growth curves and gentle, proactive alerts if a critical milestone is delayed, allowing for early intervention."
+    },
+    {
+      question: "Can I share these digital records with my pediatrician?",
+      answer: "Yes! WombTo18 is designed to eliminate carrying physical files. You can instantly generate a formatted, secure PDF report of all logged milestones, prescriptions, and vaccination certificates to share with your doctor before checkups."
     },
     {
       question: "Can multiple family members access the account?",
-      answer: "Yes, you can securely invite a co-parent or guardian to have shared access to your child's health dashboard and alerts."
+      answer: "Yes, you can securely invite a co-parent, guardian, or even a primary caregiver to have shared access to your child's health dashboard so everyone stays in the loop."
+    },
+    {
+      question: "What is the 'Go Green' initiative?",
+      answer: "We believe in leaving a healthy planet for the next generation. For every child registered on WombTo18, our foundation plants a tree. You can even track the growth of your cohort's trees right alongside your child's milestones!"
+    },
+    {
+      question: "What happens to the account when my child turns 18?",
+      answer: "WombTo18 is built to create a lifelong health passport. When your child reaches 18, full ownership and access of the digital health profile can be seamlessly transferred to them, ensuring they enter adulthood with a complete medical history."
     }
   ];
 

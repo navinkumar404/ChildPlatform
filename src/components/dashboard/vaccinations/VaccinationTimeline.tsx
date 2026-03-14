@@ -1,11 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import { Baby, Smile, Calendar, Syringe, AlertTriangle, Bell } from "lucide-react";
+import { Baby, Smile, Calendar, Syringe, AlertTriangle, Bell, Loader2 } from "lucide-react";
 import VaccineDetailsModal from "./VaccineDetailsModal";
+import { downloadVaccineCertificate } from "@/utils/generateCertificate"; // Make sure you created this file!
 
 export default function VaccinationTimeline() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Track which certificate is currently generating
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
+
+  const handleDownloadCertificate = async (id: string, vaccineName: string, date: string) => {
+    setDownloadingId(id); // Start loading spinner
+    try {
+      await downloadVaccineCertificate({
+        childName: "Aarav Sharma",
+        vaccineName: vaccineName,
+        date: date,
+      });
+    } catch (error) {
+      console.error("Failed to download certificate", error);
+    } finally {
+      setDownloadingId(null); // Stop loading spinner
+    }
+  };
 
   return (
     <div className="flex-1">
@@ -43,7 +62,7 @@ export default function VaccinationTimeline() {
           <h3 className="mb-4 text-lg font-medium text-slate-900">At Birth</h3>
           <div className="grid gap-4">
 
-            {/* Completed Card 1 */}
+            {/* Completed Card 1 (BCG) */}
             <div className="flex flex-col justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -60,11 +79,17 @@ export default function VaccinationTimeline() {
               </div>
               <div className="flex items-center gap-2">
                 <button className="rounded-lg bg-slate-100 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-200">View Details</button>
-                <button className="rounded-lg border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary/5">Certificate</button>
+                <button 
+                  onClick={() => handleDownloadCertificate("bcg", "BCG", "12 Oct 2023")}
+                  disabled={downloadingId === "bcg"}
+                  className="flex min-w-[90px] items-center justify-center gap-2 rounded-lg border border-primary px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/5 disabled:opacity-50"
+                >
+                  {downloadingId === "bcg" ? <Loader2 className="h-4 w-4 animate-spin" /> : "Certificate"}
+                </button>
               </div>
             </div>
 
-            {/* Completed Card 2 */}
+            {/* Completed Card 2 (Hepatitis B) */}
             <div className="flex flex-col justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -81,7 +106,13 @@ export default function VaccinationTimeline() {
               </div>
               <div className="flex items-center gap-2">
                 <button className="rounded-lg bg-slate-100 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-200">View Details</button>
-                <button className="rounded-lg border border-primary px-4 py-2 text-xs font-medium text-primary hover:bg-primary/5">Certificate</button>
+                <button 
+                  onClick={() => handleDownloadCertificate("hep-b", "Hepatitis B", "12 Oct 2023")}
+                  disabled={downloadingId === "hep-b"}
+                  className="flex min-w-[90px] items-center justify-center gap-2 rounded-lg border border-primary px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/5 disabled:opacity-50"
+                >
+                  {downloadingId === "hep-b" ? <Loader2 className="h-4 w-4 animate-spin" /> : "Certificate"}
+                </button>
               </div>
             </div>
           </div>
