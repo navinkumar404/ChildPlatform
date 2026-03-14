@@ -92,14 +92,14 @@ export const downloadVaccineCertificate = async ({ childName, vaccineName, date,
         // THE FIX: Find all style tags and linked stylesheets in the cloned document
         const styles = clonedDoc.querySelectorAll('style, link[rel="stylesheet"]');
         
-        styles.forEach((style) => {
-          // Keep Google Fonts so the 'Lexend' font still works
-          if (style.href && style.href.includes('fonts.googleapis.com')) {
-            return;
-          }
-          // Remove everything else (Tailwind, global CSS) so html2canvas doesn't crash trying to parse lab() colors!
-          style.remove();
-        });
+              styles.forEach((style) => {
+        if (style instanceof HTMLLinkElement && style.href.includes('fonts.googleapis.com')) {
+          return;
+        }
+
+        // Remove everything else
+        style.remove();
+      });
 
         // Ensure the cloned body has a fallback standard color to prevent inheriting complex CSS variables
         clonedDoc.body.style.color = '#000000';
